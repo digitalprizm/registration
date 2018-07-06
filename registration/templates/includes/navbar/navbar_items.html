@@ -1,0 +1,29 @@
+	{% set top_bar_items = [
+
+	{"label": "Price", "url": "/pricing", "right":1},
+	{"label": "Blog", "url": "/blog", "right": 1},
+
+	{"label": "Help", "child_items":[
+		{"label": "Issue", "url": "/manual","right": 1},
+		{"label": "Registration", "url": "/pricing","right": 1},
+		{"label": "Contact", "url": "/about","right": 1},
+	], "right":1},
+] %}
+
+{% if top_bar_items -%}
+<ul class="nav navbar-nav navbar-left">
+	{%- for page in top_bar_items -%}
+		{% if not page.parent_label and not page.right -%}
+			{% include "templates/includes/navbar/navbar_link.html" %}
+		{%- endif -%}
+	{%- endfor %}
+</ul>
+{%- endif %}
+<ul class="nav navbar-nav navbar-right">
+	{%- for page in top_bar_items -%}
+		{% if not page.parent_label and page.right -%}
+			{% include "templates/includes/navbar/navbar_link.html" %}
+		{%- endif -%}
+	{%- endfor %}
+	{% include "templates/includes/navbar/navbar_login.html" %}
+</ul>

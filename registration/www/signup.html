@@ -1,0 +1,201 @@
+<!-- no-cache -->
+
+<div class="page-card">
+	<div class="missing-domain-msg hidden text-center">
+		<p class="lead" style="font-size: 20px;"><span class="missing-domain text-primary"></span> tidak ada</p>
+		<i class="octicon octicon-chevron-down mega-octicon" style="color: #36414C;"></i>
+	</div>
+
+	<h1 class="text-center">
+		<span>Registration</span>
+		<span>Digital Prizm</span>
+		<br>
+		<span class="plan-message small">Package</span>
+	</h1>
+
+	<br>
+	<form class="signup-state-details" role="form">
+
+<div class="data-card">
+
+		<div class="lead data-card-title">Owner Data</div>
+
+		<div class="form-group">
+			<p class="help-block">Full name</p>
+			<input name="full_name" placeholder="example: Nick Johnes" class="form-control" type="text">
+		</div>
+
+		<div class="form-group">
+			<p class="help-block">Email address</p>
+			<input name="email" placeholder="example: user@gmail.com" class="form-control" type="text">
+			<p class="validation-message">Please enter the correct email address</p>
+		</div>
+
+		<div class="form-group">
+			<p class="help-block">Phone No</p>
+			<input name="email" placeholder="example: +9181297867564" class="form-control" type="text">
+		</div>
+
+</div>
+
+<div class="data-card">
+
+		<div class="lead data-card-title">Business Data</div>
+
+		<div class="form-group">
+			<p class="help-block">City</p>
+			<input name="email" placeholder="example: Marina Bay" class="form-control" type="text">
+			<p class="validation-message">Please enter the correct city name</p>
+		</div>
+
+		<div class="form-group">
+			<p class="help-block">Business Name</p>
+			<input name="company_name" placeholder="Business Name" class="form-control" type="text">
+		</div>
+
+		<div class="form-group">
+			<p class="help-block">Community</p>
+			<input name="email" placeholder="example: Community of Leather Craftsmen" class="form-control" type="text">
+			<p class="validation-message">Enter the name of the Community to which you belong</p>
+		</div>
+
+		<div class="form-group signup-subdomain">
+			<p class="help-block">Website address you want <em> (fill only with letters, numbers, and signs "-".)</em></p>
+				<div class="input-group">
+					<input name="subdomain" placeholder="name of business" class="form-control" type="text">
+					<span class="input-group-addon">.{{ signup_domain }}</span>
+				</div>
+				<div class="availability">
+					<span class="availability-status hidden"><i class="octicon octicon-check"></i><span></span></span>
+					<span class="availability-spinner text-extra-muted hidden" style="font-size: 12px;">checking...</span>
+				</div>
+			<p class="validation-message"></p>
+		</div>
+
+</div>
+
+		<br>
+		<div class="form-group text-center">
+			<a class="blue button btn-request" type="button">Sign up</a>
+		</div>
+
+	</form>
+
+</div>
+
+{% include "registration/templates/includes/google_conversion.html" %}
+
+<script>
+	{% include "registration/templates/includes/signup.js" %}
+
+	window.erpnext_signup = {
+		subdomain_placeholder: 'business_name',
+		distribution: 'erpnext'
+	}
+
+	frappe.ready(function() {
+		setup_signup($('#page-signup'));
+	});
+</script>
+
+<style>
+.form-group {
+	position: relative;
+	margin-bottom: 10px;
+	padding: 5px;
+	margin: 5px 5px;
+	border-radius: 6px;
+}
+
+.form-group em {
+	font-size: 12px;
+}
+
+.hero-and-content {
+	background-color: #f5f7fa;
+}
+
+[data-html-block="header"] {
+	text-align: center;
+}
+
+.page-card {
+	max-width: 500px;
+  padding: 30px 40px;
+  margin: 20px auto;
+	border-radius: 6px;
+	background-color: #fcfcfc;
+}
+@media (max-width:767px) {
+	.page-card{
+		padding: 30px 15px;
+	}
+}
+
+.data-card{
+	border: 1px solid #f3f3f3;
+	border-radius: 6px;
+	padding: 5px 5px 12px;
+	margin-bottom: 15px;
+	background-color: #fff;
+}
+
+.data-card-title{
+	font-size: 20px;
+	margin-bottom: 0;
+	margin-top: 10px;
+	padding-left: 10px;
+}
+
+.help-block {
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.plan-message{
+	color: #7575ff!important;
+}
+
+.availability {
+	position: absolute;
+}
+
+.availability-status {
+	display: flex;
+  align-items: center;
+}
+
+.availability-status span {
+	font-size: 12px;
+}
+
+.availability-status i, .availability-spinner i {
+	margin: 5px;
+	font-size: 16px;
+}
+
+.validation-message {
+	display: none;
+	margin-top: 0px;
+  position: absolute;
+  font-size: 12px;
+}
+
+.invalid .validation-message{
+	color: #ffad58;
+	display: inherit;
+}
+
+.invalid input {
+	border-color: #ffad58;
+	background-color: #fffdf4;
+}
+
+.availability-spinner {
+	display: inline-block;
+
+}
+
+
+
+</style>
